@@ -71,12 +71,12 @@ router.post("/selling", upload.single("avatar"), async (req, res) => {
         var sender = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            user: "fullstackdeveloper772@gmail.com",
+            user: "stackdeveloper112@gmail.com",
             pass: process.env.pass,
           },
         });
         var composeMail = {
-          from: "fullstackdeveloper772@gmail.com",
+          from: "stackdeveloper112@gmail.com",
           to: req.body.email,
           subject: `Account-verification`,
           text: "",
@@ -198,12 +198,12 @@ router.post("/register", async (req, res) => {
         var sender = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            user: "fullstackdeveloper772@gmail.com",
+            user: "stackdeveloper112@gmail.com",
             pass: process.env.pass,
           },
         });
         var composeMail = {
-          from: "fullstackdeveloper772@gmail.com",
+          from: "stackdeveloper112@gmail.com",
           to: req.body.email,
           subject: `Account-verification`,
           text: "",
@@ -258,12 +258,12 @@ router.post("/forgot-password", async (req, res) => {
       var sender = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: "fullstackdeveloper772@gmail.com",
+          user: "stackdeveloper112@gmail.com",
           pass: process.env.pass,
         },
       });
       var composeMail = {
-        from: "fullstackdeveloper772@gmail.com",
+        from: "stackdeveloper112@gmail.com",
         to: req.body.email,
         subject: `Reset-password-verification`,
         text: "",
