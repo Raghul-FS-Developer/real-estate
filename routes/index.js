@@ -19,37 +19,6 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-// router.post("/sell", upload.single("avatar"), async (req, res) => {
-//  try{ 
-//   console.log(req.body.email)
-//   let result = await sell({rooms:req.body.rooms,
-//     type:req.body.type,
-//     categories:req.body.categories,
-//     price:req.body.price,
-//     number:req.body.number,
-//     location:req.body.location
-//   });
- 
-//  console.log(req.file)
-//   if (req.file) {
-//       result.avatar = req.file.path;
-//       result.save((err) => {
-//         if (err) {
-//           console.log(err);
-//           res.json({ statuscode: 400, message: "something went wrong" });
-//         } else {
-//           res.json({
-//             statuscode: 200,
-//             message: "posted successfully",
-//           });
-//         }
-//       });
-//   }
-// }catch(error){
-//   console.log(error)
-// }
-
-// });
 
 router.post("/selling", upload.single("avatar"), async (req, res) => {
   try {
