@@ -19,7 +19,7 @@ function Sell() {
       email: "",
       password: "",
       type: "",
-      // avatar:"" 
+     
     },
     validationSchema: yup.object({
       categories: yup
@@ -42,8 +42,7 @@ function Sell() {
         .string()
         .min(2, "select the given options")
         .required("select the type"),
-      // avatar:yup.mixed().nullable().required('upload a image')
-      // .test('fichier taille','upload file', (value)=> !value || (value && value.size <= 1024 * 1024))
+      
     }),
     onSubmit(values) {
       handleSubmit(values);
@@ -67,7 +66,7 @@ function Sell() {
   
     try {
       console.log("function called");
-      let res = await axios.post(`http://localhost:4000/selling`, formData, {
+      let res = await axios.post(`https://backreal.herokuapp.com/selling`, formData, {
         headers: { "content-Type": "multipart/form-data" },
       });
       console.log(res);
@@ -151,7 +150,7 @@ function Sell() {
             {formik.touched.rooms && formik.errors.rooms ? (
               <div style={{ color: "red" }}>{formik.errors.rooms}</div>
             ) : null}
-            {/* <input class="fname" type="text" name="name" placeholder="Rooms"/> */}
+           
             <input
               className="inputs"
               type="text"
@@ -227,88 +226,6 @@ function Sell() {
       </div>
     </div>
   );
-  // const[msg,setMsg]=useState('')
-  // const[email,setEmail]=useState('')
-  // const[password,setPassword]=useState('')
-  // const[type,setType]=useState('')
-  // const[price,setPrice]=useState('')
-  // const[categories,setCategories]=useState('')
-  // const[rooms,setRooms]=useState('')
-  // const[location,setLocation]=useState('')
-  // const[number,setNumber]=useState('')
-
-  // const formData = new FormData();
-
-  // const onFileChange=(e)=>{
-  //   //console.log(e.target.files[0])
-
-  //     formData.append('avatar',e.target.files[0])
-  //     formData.append('email',email)
-  //   formData.append('password',password)
-  //   formData.append('number',number)
-  //   formData.append('price',price)
-  //   formData.append('rooms',rooms)
-  //   formData.append('categories',categories)
-  //   formData.append('location',location)
-  //   formData.append('type',type)
-    
-
-  //   };
-      
-    
-    
-  //   let submit=async(e)=>{
-  //   e.preventDefault()
-  //    console.log(email)
-  //  let res = await axios.post(`http://localhost:4000/sell`,formData,
-  //  {headers:
-  //   {'content-Type':'multipart/form-data'}
-  // })
-  // //   console.log(res)
-  // //  console.log(msg)
-  // }
-
-  // return(
-  // <>
-  // <form id='myForm' name='myForm'>
-
-  // <input className='inputs'type="text" name="email" onChange={(e)=>setType(e.target.value)} placeholder="type"/>
-  // <input className='inputs'type="text" name="email" onChange={(e)=>setCategories(e.target.value)} placeholder='cate'/>
-  // <input className='inputs'type="text" name="email" onChange={(e)=>setPrice(e.target.value)} placeholder="price"/>
-  // <input className='inputs'type="text" name="email" onChange={(e)=>setNumber(e.target.value)} placeholder="number"/>
-  // <input className='inputs'type="text" name="email" onChange={(e)=>setRooms(e.target.value)} placeholder="rooms"/>
-  // <input className='inputs'type="text" name="email" onChange={(e)=>setLocation(e.target.value)} placeholder="locaton"/>
-  // <input className='inputs'type="text" name="email" onChange={(e)=>setEmail(e.target.value)} placeholder="Email"/>
-  // <input className='inputs'type="text" name="email" onChange={(e)=>setPassword(e.target.value)} placeholder="Email"/>
-  // <input   type="file" onChange={onFileChange}/>
-  // <p>Drag your files here or click in this area.</p>
-  // <button className='buttons' type="submit" href='#' onClick={submit}>Submit</button>
-  // </form >
-  // </>
-  // )
-}
+  }
 
 export default Sell;
-
-// const[msg,setMsg]=useState({})
-// const[mail,setMail]=useState('')
-// const[mails,setMails]=useState('')
-// let submit=async(e)=>{
-//   e.preventDefault()
-//   let res= await axios.post(`http://localhost:4000/selling`,{avatar:msg,
-// email:mail,
-// password:mails
-// })
-//  console.log(res)
-// console.log(msg)
-// }
-
-// return(
-// <>
-// <input className='inputs'type="text" name="email" onChange={(e)=>setMail(e.target.value)} placeholder="Email"/>
-// <input className='inputs'type="text" name="email" onChange={(e)=>setMails(e.target.value)} placeholder="Email"/>
-// <input name='avatar'  type="file" onChange={(e)=>setMsg(e.target.files[0])}/>
-// <p>Drag your files here or click in this area.</p>
-// <button className='buttons' type="submit" href='#' onClick={submit}>Submit</button>
-// </>
-// )
