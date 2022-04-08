@@ -83,7 +83,7 @@ router.post("/selling", upload.single("avatar"), async (req, res) => {
           html: `<h2>Hello ${name}</h2>
         <p>We've recieved a request to verify your account associated with your email.
         You can register your account by clicking the link below</p>
-        <a href=http://localhost:3000/register-confirm/${token1}>Register verification</a>
+        <a href=https://frontreal.herokuapp.com/register-confirm/${token1}>Register verification</a>
         <p><b>Note:</b>The link expires 5 minutes from now</p>
         </div>`,
         };
@@ -210,7 +210,7 @@ router.post("/register", async (req, res) => {
           html: `<h2>Hello ${name}</h2>
         <p>We've recieved a request to verify your account associated with your email.
         You can register your account by clicking the link below</p>
-        <a href=http://localhost:3000/register-confirm/${token}>Register verification</a>
+        <a href=https://frontreal.herokuapp.com/register-confirm/${token}>Register verification</a>
         <p><b>Note:</b>The link expires 5 minutes from now</p>
         </div>`,
         };
@@ -270,7 +270,7 @@ router.post("/forgot-password", async (req, res) => {
         html: `<h2>Hello ${name}</h2>
       <p>We've recieved a request to reset the password for your account associated with your email.
       You can reset your password by clicking the link below</p>
-      <a href=http://localhost:3000/forgot-confirm/${token}> Reset Password</a>
+      <a href=https://frontreal.herokuapp.com/forgot-confirm/${token}> Reset Password</a>
       <p><b>Note:</b>The link expires 5 minutes from now</p>
       </div>`,
       };
