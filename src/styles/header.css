@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+ .heads{
+  font-family: 'Open Sans', sans-serif;
+ }
+ h2 {
+  margin: 0 0 0 8px;
+  } 
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {color:crimson;}
+  
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+ 
+  .dropdown:hover .dropbtn {color: crimson !important;}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  .build{
+    margin-left: 120px;
+    color: crimson;
+  }
+  .buildtop{
+    display: flex;
+    align-items: center;
+  }
+ @media (max-width:1200px){
+   .build{
+     padding-left: 0px;
+     margin-left: 0px;
+     color:crimson;
+   }
+  
+ }

@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Orbitron:wght@500&family=Poppins&family=Rajdhani:wght@600&family=Titillium+Web:wght@700&family=Ubuntu:wght@500&display=swap');
+.img1{
+  max-height:375px;
+  object-position:top;
+  object-fit:cover;
+}.img2{
+  max-height:375px;
+  object-position:center;
+  object-fit:cover;
+}
+.img3{
+  max-height:375px;
+  object-position:center;
+  object-fit:cover;
+}
+
+.mid{
+  position:sticky;
+  top: 0;
+    display: flex;
+   justify-content: space-evenly;
+  background-color: crimson;
+  font-family: 'Rajdhani', sans-serif;
+  border-radius: 0px 0px 30px 30px;
+  padding:6px ;
+}
+html {
+  scroll-behavior:smooth;
+}
+.mids{
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  background-color:rgba(255, 255, 255, 0.877);
+  height:420px;
+  width:auto;
+  max-width:250px;
+  border-radius: 10px 10px 0px 0px;
+ text-align: center;
+ border-bottom: 4px solid crimson;
+ transition: 0.1s;
+ cursor: pointer;
+}.midlow{
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.mids:hover{
+  box-shadow: -2px 7px 46px -19px rgba(0,0,0,1);
+-webkit-box-shadow: -2px 7px 46px -19px rgba(0,0,0,1);
+-moz-box-shadow: -2px 7px 46px -19px rgba(0,0,0,1);
+
+}
+.eimg{
+   height: 380px;
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+  margin-bottom: 5px;
+ 
+}
+.eimgbot {
+  font-family: 'Rajdhani', sans-serif;
+  text-decoration: none;
+  
+  color: black;
+}
+.eimgbot:hover{
+  font-family: 'Rajdhani', sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+
+.major{
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+.midbot{
+  text-align: center;
+  margin-top: 50px;
+}
+.midbots{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+@media screen and (max-width: 1000px) and (min-width: 500px){
+  .mapmain{
+    height:400px;
+    width: auto !important;
+    min-width: 500px;
+  }
+}
+
+@media (max-width:531px){
+  .specsbody{
+    display:flex;
+    flex-wrap: wrap;
+  } 
+  .midbot3head{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
+   
+  }
+  .mapmain{
+    height:400px;
+    width: auto !important ;
+  }
+}
+@media (max-width:395px){
+  .mid{
+    display: flex;
+   justify-content: space-evenly;
+  background-color:skyblue;
+  font-size: small;
+  color: black;
+ 
+  }.mapmain{
+    height:400px;
+    width: 200px !important ;
+  }.specs1{
+     font-size:20px !important;
+  }
+  .specsbody{
+    display:flex;
+    flex-wrap: wrap
+  }
+  
+  .major{
+    display:flex;
+    flex-direction: column;
+    
+align-items: center
+  }
+  .mids{
+    margin-bottom:20px
+  }
+  
+}
+.midbot2{
+  background-color:  #f8f9fa;
+  text-align: center;
+  margin-top:30px;
+  padding: 90px;
+}
+.midbot3{
+  overflow:hidden;
+  padding-top: 22px;
+  margin-top: 50px;
+  text-align: center;
+  width:220px;
+  height:150px;
+  background-color: white;
+  border-left:4px solid crimson;
+  
+}
+.midbot3head{
+  display:flex;
+  justify-content: space-between;
+}
+.textbot3{
+  font-size: 20px;
+  color: black;
+  font-family: 'Inter', sans-serif;
+  
+}
+.mid1{
+  font-family: 'Titillium Web', sans-serif;
+}
+.mid2{
+  font-family: 'Inter', sans-serif;
+  font-size: 15px
+}
+.iconbot3{
+  color:black
+}
+.specs{
+  font-family: 'Orbitron', sans-serif;
+ display: flex;
+ justify-content: center;
+ 
+align-items: center;
+  margin-top: 60px;
+ background-color:crimson;
+ padding: 20px;
+ color:white
+}
+
+.specsbody{
+  display: flex;
+  justify-content: space-evenly
+}
+.model2{
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 35px;
+  padding-bottom: 30px;
+}
+.bodycontent{
+  padding: 10px;
+ 
+  margin:50px;
+  
+  
+}
+.grid { 
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  align-items: start;
+  justify-items: center;
+  }
+.grid img {
+  border: 1px solid rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.3);
+  max-width: 100%;
+}
+.grid img:nth-child(2) {
+  grid-column: span 3;
+  grid-row: span 2;
+  }
+  .model{
+    text-align: center;
+    padding:80px;
+    padding-top:80px;
+    margin-top: 20px;
+  background-color: #f8f9fa;
+  color: crimson;
+  }
+  .maps{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:auto
+  }
+  .mapmain{
+    height:400px;
+    width: 1000px ;
+    
+  }
+  .maphead{
+    font-family: 'Titillium Web', sans-serif;
+  font-size: 35px;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-decoration: underline;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:auto
+  }
+  
