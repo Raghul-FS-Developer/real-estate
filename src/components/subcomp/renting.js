@@ -54,7 +54,7 @@ useEffect(()=>{
             
 
                 
-                <div class="card h-100 shadow-sm"> <img className='images' src={`http://localhost:4000/${e.avatar}`}/>
+                <div class="card h-100 shadow-sm"> <img className='images' src={`https://backreal.herokuapp.com/${e.avatar}`}/>
                     <div class="card-body">
                         <div class="clearfix mb-3"> <h3 class="float-start badge rounded-pill bg-primary">{e.type}</h3> <span class="float-end price-hp">{e.categories}</span> </div>
                        <div class='medium'>
