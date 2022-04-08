@@ -67,7 +67,7 @@ function Sell() {
   
     try {
       console.log("function called");
-      let res = await axios.post(`https://backreal.herokuapp.com/selling`, formData, {
+      let res = await axios.post(`http://localhost:4000/selling`, formData, {
         headers: { "content-Type": "multipart/form-data" },
       });
       console.log(res);

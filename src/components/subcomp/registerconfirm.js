@@ -19,7 +19,7 @@ let params = useParams();
 
 
 let getdata=async()=>{
-let res =await axios.post(`https://backreal.herokuapp.com/register-confirm/${params.token}`);
+let res =await axios.post(`http://localhost:4000/register-confirm/${params.token}`);
 
 if (res.data.statuscode === 200) 
 {

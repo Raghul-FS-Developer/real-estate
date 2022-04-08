@@ -18,7 +18,7 @@ function ForgotConfirm() {
    
     if(password === newpassword){
         
-       let res = await axios.post(`https://backreal.herokuapp.com/forgot-confirm/${params.token}`,{
+       let res = await axios.post(`http://localhost:4000/forgot-confirm/${params.token}`,{
        password:password})
 
 
