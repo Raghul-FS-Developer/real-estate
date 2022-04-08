@@ -48,7 +48,7 @@ function ForgotConfirm() {
       <input type="password" name='password' minlength="8" maxlength='14' onChange={(e)=>setPassword(e.target.value)} placeholder="password" required/>
       <input type="password" name='confirmpassword' minlength="8" maxlength='14' onChange={(e)=>setNewpassword(e.target.value)} placeholder="confirm Password" required/>
       <p style={{color:"red"}}>{msg}</p>
-      <button type='submit' >Register</button>
+      <button type='submit' >Reset</button>
       </form>
   </div>
 </div>
