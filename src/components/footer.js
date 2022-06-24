@@ -12,7 +12,7 @@ function Footer() {
 
 <div class="footer-basic">
         <footer>
-            <div class="social"><a href="https://github.com/princeraghul?tab=repositories" target='_blank'><AiFillGithub/></a><a><BsInstagram/></a><a><FaFacebookF/></a><a><FiTwitter/></a></div>
+            <div class="social"><a href="https://github.com/Raghul-FS-Developer" target='_blank'><AiFillGithub/></a><a><BsInstagram/></a><a><FaFacebookF/></a><a><FiTwitter/></a></div>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="/">Home</a></li>
                 <li class="list-inline-item"><a >Services</a></li>
