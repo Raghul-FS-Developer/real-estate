@@ -16,15 +16,15 @@ const { hashing, hashCompare, createjwt, auth } = require("../library/auth");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.render("index", { title: "Real Estate App" });
 });
 
 
 router.post("/selling", upload.single("avatar"), async (req, res) => {
   try {
-    
+
     const login = await users.findOne({ email: req.body.email });
-    let token1 = await createjwt({ email: req.body.email });
+      let token1 = await createjwt({ email: req.body.email });
     
     if (login) {
       if (login.ValidityStatus == "Active") {
@@ -36,13 +36,12 @@ router.post("/selling", upload.single("avatar"), async (req, res) => {
           price:req.body.price,
           type:req.body.type,
           rooms:req.body.rooms,
-         
-          });
+  
+        });
           if (req.file) {
             result.avatar = req.file.path;
           }
-         
-          
+                   
           result.save((err,data) => {
             if (err) {
               console.log(err);
@@ -51,9 +50,9 @@ router.post("/selling", upload.single("avatar"), async (req, res) => {
               res.json({
                 statuscode: 200,
                
-                     });
-                      console.log(data)
-                    }
+          });
+           console.log(data)
+           }
           });
         } else {
           res.json({
@@ -62,28 +61,25 @@ router.post("/selling", upload.single("avatar"), async (req, res) => {
           });
         }
       } else {
-        res.json({
-          statuscode: 400,
-          message: '"account is InActive , Check Your Mail For Activaton Link',
-        });
+        
         let { name } = login;
 
         var sender = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            user: "fullstackdeveloper772@gmail.com",
+            user: "stackdeveloper112@gmail.com",
             pass: process.env.pass,
           },
         });
         var composeMail = {
-          from: "fullstackdeveloper772@gmail.com",
+          from: "stackdeveloper112@gmail.com",
           to: req.body.email,
           subject: `Account-verification`,
           text: "",
           html: `<h2>Hello ${name}</h2>
         <p>We've recieved a request to verify your account associated with your email.
         You can register your account by clicking the link below</p>
-        <a href=https://frontreal.herokuapp.com/register-confirm/${token1}>Register verification</a>
+        <a href=https://real-estate-six-flax.vercel.app/register-confirm/${token1}>Register verification</a>
         <p><b>Note:</b>The link expires 5 minutes from now</p>
         </div>`,
         };
@@ -91,6 +87,11 @@ router.post("/selling", upload.single("avatar"), async (req, res) => {
         sender.sendMail(composeMail, (error) => {
           if (error) {
             console.log(error);
+          }else{
+            res.json({
+              statuscode: 400,
+              message: '"account is InActive , Check Your Mail For Activaton Link',
+            });
           }
         });
       }
@@ -190,27 +191,25 @@ router.post("/register", async (req, res) => {
         console.log(err);
         res.json({ statuscode: 400, message: "Email Already Exist" });
       } else {
-        res.json({
-          statuscode: 200,
-        });
+        
         let { name } = data;
 
         var sender = nodemailer.createTransport({
           service: "gmail",
           auth: {
-            user: "fullstackdeveloper772@gmail.com",
+            user: "stackdeveloper112@gmail.com",
             pass: process.env.pass,
           },
         });
         var composeMail = {
-          from: "fullstackdeveloper772@gmail.com",
+          from: "stackdeveloper112@gmail.com",
           to: req.body.email,
           subject: `Account-verification`,
           text: "",
           html: `<h2>Hello ${name}</h2>
         <p>We've recieved a request to verify your account associated with your email.
         You can register your account by clicking the link below</p>
-        <a href=https://frontreal.herokuapp.com/register-confirm/${token}>Register verification</a>
+        <a href=https://real-estate-six-flax.vercel.app/register-confirm/${token}>Register verification</a>
         <p><b>Note:</b>The link expires 5 minutes from now</p>
         </div>`,
         };
@@ -218,6 +217,8 @@ router.post("/register", async (req, res) => {
         sender.sendMail(composeMail, (error) => {
           if (error) {
             console.log(error);
+          }else{
+            res.json({ statuscode: 200 });
           }
         });
       }
@@ -249,6 +250,7 @@ router.post("/register-confirm/:token", async (req, res) => {
 });
 router.post("/forgot-password", async (req, res) => {
   try {
+    console.log('forgot hitted')
     let step = await users.findOne({ email: req.body.email });
 
     if (step) {
@@ -258,19 +260,19 @@ router.post("/forgot-password", async (req, res) => {
       var sender = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: "fullstackdeveloper772@gmail.com",
+          user: "stackdeveloper112@gmail.com",
           pass: process.env.pass,
         },
       });
       var composeMail = {
-        from: "fullstackdeveloper772@gmail.com",
+        from: "stackdeveloper112@gmail.com",
         to: req.body.email,
         subject: `Reset-password-verification`,
         text: "",
         html: `<h2>Hello ${name}</h2>
       <p>We've recieved a request to reset the password for your account associated with your email.
       You can reset your password by clicking the link below</p>
-      <a href=https://frontreal.herokuapp.com/forgot-confirm/${token}> Reset Password</a>
+      <a href=https://real-estate-six-flax.vercel.app/forgot-confirm/${token}> Reset Password</a>
       <p><b>Note:</b>The link expires 5 minutes from now</p>
       </div>`,
       };
@@ -278,10 +280,12 @@ router.post("/forgot-password", async (req, res) => {
       sender.sendMail(composeMail, (error) => {
         if (error) {
           console.log(error);
+        }else{
+          res.json({ statuscode: 200 });
         }
       });
 
-      res.json({ statuscode: 200 });
+      
     } else {
       res.json({ statuscode: 400, message: "Email does not exist" });
     }

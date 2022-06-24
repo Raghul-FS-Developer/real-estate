@@ -1,35 +1,28 @@
+const aws =  require('aws-sdk');
+const multer =  require('multer');
+const multerS3 = require('multer-s3');
+const uuid = require('uuid').v4;
 const path = require('path');
-const multer = require('multer')
-
-var storage = multer.diskStorage({
-    destination: function(req,file,cb){
-        cb(null, 'uploads/')
-    },
-    filename: function(req, file, cb){
-        let ext = path.extname(file.originalname)
-        cb(null, Date.now()+ext)
-
-    }
-})
+require('dotenv').config()
 
 
-var upload = multer({
-   
-    storage:storage,
-    // fileFilter:function(req,file,callback){
-    //     if(
-    //         file.mimetype == "image/png" ||
-    //         file.mimetype == "image/jpg"
-    //     ){
-    //         callback(null, true)
-    //     }else{
-    //         console.log('only jpg & png file supported')
-    //         callback(null, false)
-    //     }
-    // },
-    limits:{
-        fileSize:1024 * 1024 * 2
-    }
-})
+const s3 = new aws.S3({accessKeyId:`${process.env.AccessKeyId}`,
+secretAccessKey:`${process.env.SecretAccessKey}`});
+
+const upload = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket:'social007',
+        acl: 'public-read',
+        metadata:(req,file,cb)=>{
+            cb(null, {fieldName: file.fieldname})
+        },
+        key:(req,file,cb)=>{
+            const ext = path.extname(file.originalname);
+            cb(null, `${uuid()}${ext}`)
+        }
+    })
+});
 
 module.exports = upload
+
