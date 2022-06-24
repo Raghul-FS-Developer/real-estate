@@ -5,11 +5,12 @@ import env from 'react-dotenv';
 
 function Forgot() {
 
-const[value,setValue]=useState([]);
-const [msg,setMsg]=useState([]);
+const[value,setValue]=useState('');
+const [msg,setMsg]=useState('');
 
 let submit=async(e)=>{
   e.preventDefault()
+
   let res=await axios.post(`${env.REACT_APP_API_URL}forgot-password`,{email:value})
 // console.log(res)
   setMsg(res.data.message)
