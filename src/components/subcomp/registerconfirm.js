@@ -38,10 +38,10 @@ setWork(prev=>!prev)
      <h2 style={{display:"flex",justifyContent:"center", color:"green"}}>
       Account verified successfullly     
      </h2>
-     <a style={{display:"flex",justifyContent:"center", color:"red"}} onClick={()=>navigate("/sell")}> Click to continue</a></>:
+     <a style={{display:"flex",justifyContent:"center", color:"red" ,cursor:'pointer'}} onClick={()=>navigate("/sell")}> Click to continue</a></>:
      <><h2 style={{display:"flex",justifyContent:"center", color:"red"}}>
        Token Expired
-     </h2><a style={{display:"flex",justifyContent:"center", color:"green"}} onClick={()=>navigate("/sell")}>Click to Sell page</a>
+     </h2><a style={{display:"flex",justifyContent:"center", color:"green" ,cursor:'pointer'}} onClick={()=>navigate("/sell")}>Click to Sell page</a>
      </>
      
 }

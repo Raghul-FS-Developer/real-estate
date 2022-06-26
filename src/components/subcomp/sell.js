@@ -7,7 +7,7 @@ import env from "react-dotenv";
 
 function Sell() {
   const [msg, setMsg] = useState("");
-  const[avatar,setAvatar]=useState()
+  const[image,setImage]=useState()
 
   let formik = useFormik({
     initialValues: {
@@ -51,7 +51,7 @@ function Sell() {
   const formData = new FormData();
 
 
-   formData.append("avatar",avatar);
+   formData.append('image',image)
    formData.append('email',formik.values.email)
    formData.append('password',formik.values.password)
    formData.append('rooms',formik.values.rooms)
@@ -60,7 +60,7 @@ function Sell() {
    formData.append('location',formik.values.location)
    formData.append('type',formik.values.type);
    formData.append('number',formik.values.number)
-
+ console.log(image)
 
   let handleSubmit = async () => {
   
@@ -69,7 +69,7 @@ function Sell() {
       let res = await axios.post(`https://backreal.herokuapp.com/selling`, formData, {
         headers: { "content-Type": "multipart/form-data" },
       });
-      console.log(res);
+
       if (res.data.statuscode == 200) {
         alert("posted successfully");
       } else {
@@ -209,7 +209,7 @@ function Sell() {
             ) : null}
           </div>
           <h6 className="text-info">Upload a image:</h6>
-          <input name="avatar" type="file" accept="image/jpg ,image/jpeg ,image/png" onChange={(e)=>setAvatar(e.target.files[0])}  required/>
+          <input name="avatar" type="file" accept="image/jpg ,image/jpeg ,image/png" onChange={(e)=>setImage(e.target.files[0])}  required/>
           <p>Drag your files here or click in this area.</p>
          
          

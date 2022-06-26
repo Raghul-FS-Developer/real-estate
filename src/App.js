@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/header";
 import Home from "./components/home";
@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <Header />
-      <Router>
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About/>}/>
@@ -37,7 +37,7 @@ function App() {
           <Route path='/register-confirm/:token' element={<RegisterConfirm/>}/>
           <Route path="/forgot-confirm/:token" element={<ForgotConfirm/>}/>
         </Routes>
-      </Router>
+
       <Footer />
     </>
   );

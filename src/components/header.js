@@ -2,8 +2,10 @@ import React,{useState ,useEffect} from "react";
 import header from "../styles/header.css";
 
 import { MdApartment } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 function Header() {
-  
+   
+  const nav = useNavigate()
   const [width, setWidth] = useState(window.innerWidth);
   const updateWidth = () => {
     setWidth(window.innerWidth);
@@ -22,9 +24,9 @@ function Header() {
 <div class='headers' >
 <nav class="navbar navbar-expand-lg  navbar-light bg-white" >
   
-    <MdApartment className="build" size={40}/>
+    <MdApartment className="build" style={{cursor:"pointer"}} onClick={()=>nav('/')} size={40}/>
     
-  <h2 className="col-lg-5 text-dark"style={{padding:"0px"}}>
+  <h2 className="col-lg-5 text-dark"  onClick={()=>nav('/')} style={{padding:"0px",cursor:"pointer"}}>
     <em>
       <span className="text-dark">R</span>
       <small style={{ color: "crimson" }}>eal</small>
@@ -101,10 +103,10 @@ function Header() {
  </div>:    <nav class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="container-fluid">
     <div className="buildtop">
-  <MdApartment className="build" size={40}/>  
+  <MdApartment className="build" style={{cursor:"pointer"} }onClick={()=>nav('/')} size={40}/>  
     <a class="navbar-brand" >  
     
-    <h2 className="text-dark"style={{padding:"0px"}}>
+    <h2 className="text-dark" onClick={()=>nav('/')} style={{padding:"0px",cursor:"pointer"}}>
       <em>
         <span className="text-dark">R</span>
         <small style={{ color: "crimson" }}>eal</small>
