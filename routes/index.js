@@ -20,9 +20,10 @@ router.get("/", function (req, res, next) {
 });
 
 
-router.post("/selling", upload.single("avatar"), async (req, res) => {
+router.post("/selling", upload.single("image"), async (req, res) => {
   try {
-
+ console.log(req.body)
+ console.log(req.file)
     const login = await users.findOne({ email: req.body.email });
       let token1 = await createjwt({ email: req.body.email });
     
@@ -39,7 +40,7 @@ router.post("/selling", upload.single("avatar"), async (req, res) => {
   
         });
           if (req.file) {
-            result.avatar = req.file.path;
+            result.image = req.file.location;
           }
                    
           result.save((err,data) => {
@@ -51,7 +52,7 @@ router.post("/selling", upload.single("avatar"), async (req, res) => {
                 statuscode: 200,
                
           });
-           console.log(data)
+     
            }
           });
         } else {
@@ -250,7 +251,7 @@ router.post("/register-confirm/:token", async (req, res) => {
 });
 router.post("/forgot-password", async (req, res) => {
   try {
-    console.log('forgot hitted')
+
     let step = await users.findOne({ email: req.body.email });
 
     if (step) {

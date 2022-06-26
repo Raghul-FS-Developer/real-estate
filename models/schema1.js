@@ -7,7 +7,7 @@ const sell =new Schema({
     rooms:String,
     price:String,
     number:String,
-    avatar:String,
+    image:String,
     location:String,
     type:String
 },{
