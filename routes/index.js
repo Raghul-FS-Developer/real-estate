@@ -277,6 +277,7 @@ router.post("/forgot-password", async (req, res) => {
       <p><b>Note:</b>The link expires 5 minutes from now</p>
       </div>`,
       };
+      
 
       sender.sendMail(composeMail, (error) => {
         if (error) {
