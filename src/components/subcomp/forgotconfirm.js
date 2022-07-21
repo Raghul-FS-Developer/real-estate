@@ -26,8 +26,8 @@ function ForgotConfirm() {
 
     if(res.data.statuscode==200){
       
-     navigate("/sell")
-     toast.success("password changed successfully")
+      toast.success("password changed successfully")
+     setTimeout(()=>navigate("/sell"),2000)
     
     }else{
         toast.error(res.data.message)
@@ -45,7 +45,7 @@ function ForgotConfirm() {
 
 
     <div class="login-page">
-      <ToastContainer/>
+      <ToastContainer autoClose={2000}/>
   <div class="form">
       <form class="login-form" onSubmit={submit}>
       <input type="password" name='password' minlength="8" maxlength='14' onChange={(e)=>setPassword(e.target.value)} placeholder="password" required/>
