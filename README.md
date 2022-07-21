@@ -11,6 +11,7 @@ Packages I Used..!<br/>
 
 axios<br/>
 formik<br/>
+react-toastify<br/>
 yup<br/>
 react-icons<br/>
 react-router-dom<br/>
