@@ -4,9 +4,14 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import env from "react-dotenv";
-
+import {useNavigate} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {BiImage} from 'react-icons/bi'
+import {BsFillHandThumbsUpFill} from 'react-icons/bs' 
 function Sell() {
-  const [msg, setMsg] = useState("");
+ 
+  const nav = useNavigate()
   const[image,setImage]=useState()
 
   let formik = useFormik({
@@ -60,28 +65,39 @@ function Sell() {
    formData.append('location',formik.values.location)
    formData.append('type',formik.values.type);
    formData.append('number',formik.values.number)
- console.log(image)
+
 
   let handleSubmit = async () => {
   
     try {
-      console.log("function called");
+   const id = toast.loading("Posting...")
       let res = await axios.post(`https://backreal.herokuapp.com/selling`, formData, {
         headers: { "content-Type": "multipart/form-data" },
       });
 
       if (res.data.statuscode == 200) {
-        alert("posted successfully");
+        toast.update(id,{render:"posted successfully",type:"success",isLoading:false,autoClose:true,closeButton:true});
+        setTimeout(()=> nav(`/${formik.values.categories}`),1000)
       } else {
-        setMsg(res.data.message);
+        toast.update(id,{render:res.data.message,type:"error",isLoading:false,autoClose:true,closeButton:true});
       }
     } catch (error) {
       console.log(error);
     }
   };
 
+  const handleImage =(e)=>{
+    if(e.target.files[0].size <= 2000000){
+
+      setImage(e.target.files[0])
+    }else{
+      toast.error("Image size should be less than 2 mb")
+    }
+  }
+
   return (
     <div>
+      <ToastContainer autoClose={900}/>
       <div class="main-block">
         <div class="left-part">
           <i class="fas fa-graduation-cap"></i>
@@ -208,14 +224,18 @@ function Sell() {
               <div style={{ color: "red" }}>{formik.errors.password}</div>
             ) : null}
           </div>
-          <h6 className="text-info">Upload a image:</h6>
-          <input name="avatar" type="file" accept="image/jpg ,image/jpeg ,image/png" onChange={(e)=>setImage(e.target.files[0])}  required/>
-          <p>Drag your files here or click in this area.</p>
+          <div className="dummy">
+
+          <label htmlFor="images" className="image" ><BiImage size={30}/>Upload a Image
+          </label>{image && (<div className="thumbs"><BsFillHandThumbsUpFill className="thumbsicon"/></div>)}
+          </div>
+          <input name="avatar" id="images" type="file" accept="image/jpg ,image/jpeg ,image/png" onChange={handleImage}   required/>
+          {/* <p>Drag your files here or click in this area.</p> */}
          
          
-          <p style={{ color: "red" }}>{msg}</p>
+
           <button
-            className="buttons"
+            className="buttonsnew"
             type="submit"
             href="#"
            

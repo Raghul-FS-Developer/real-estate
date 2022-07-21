@@ -33,6 +33,37 @@
     .fa-graduation-cap {
     font-size: 72px;
     }
+    .thumbs{
+        border:1px solid rgb(0, 187, 0);
+        padding: 5px;
+width: 30px;
+height: 30px;
+
+        border-radius: 50%;
+        margin-left: 5px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+
+        }
+.thumbsicon{
+color:rgb(0, 187, 0);
+
+}
+.dummy{
+    display: flex;
+    /* align-items: center; */
+    margin-top: 20px;
+   
+}
+    .image{
+ 
+
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        width:150px
+    }
     .forms {
     background: rgba(0, 0, 0, 0.5); 
     }
@@ -66,7 +97,7 @@
         font-family: Roboto, Arial, sans-serif;
     }
     
-    .btn-item, .buttons {
+    .btn-item, .buttonsnew {
     padding: 10px 5px;
     margin-top: 20px;
     border-radius: 5px; 
@@ -82,13 +113,23 @@
     display: inline-block;
     margin: 20px 5px 0;
     }
-    .buttons{
+    .buttonsnew{
+        margin-top: 0px;
     width: 100%;
+    cursor: pointer;
+
     }
-    .buttons:hover, .btn-item:hover {
+    .buttonsnew:hover, .btn-item:hover {
     background: #85d6de;
     color:white;
     text-decoration: none;
+}
+#images{
+    opacity: 0;
+    width: 1;
+   height:1px;
+  
+    pointer-events:none;
 }
     @media (min-width: 568px) {
     /* html, body {

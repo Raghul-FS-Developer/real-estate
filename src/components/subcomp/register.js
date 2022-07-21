@@ -4,10 +4,11 @@ import {useFormik} from 'formik';
 import * as yup from 'yup';
 import axios from 'axios'
 import env from 'react-dotenv'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function Register() {
 
- const[msg,setMsg]=useState('') 
+
 
 let formik=useFormik({
   initialValues:{
@@ -26,19 +27,21 @@ let formik=useFormik({
 })
 let handleSubmit=async(data)=>{
  
-
+const id = toast.loading('Please wait...')
   let res = await axios.post(`${env.REACT_APP_API_URL}register`,data)
-  setMsg(res.data.message)
-   if(res.data.statuscode ===200){
-     alert('check you email for verification link')
+  if(res.data.statuscode ===200){
+    toast.update(id,{render:'Check you mail for verification link',type:'success',isLoading:false,autoClose:true,closeButton:true})
     
-   }
+  }else{
+    toast.update(id,{render:res.data.message,type:'error',isLoading:false,autoClose:true,closeButton:true})
+    }
   
 }
 
   return (
      
 <div class="login-page">
+  <ToastContainer/>
   <div class="form">
     
      <form class="login-form" onSubmit={(e)=>{e.preventDefault(); formik.handleSubmit()}}>
@@ -48,7 +51,7 @@ let handleSubmit=async(data)=>{
       {formik.touched.email && formik.errors.email ?<div style={{color:"red"}}>{formik.errors.email}</div>:null}
       <input type="password" name='password' onChange={formik.handleChange} value={formik.values.password} onBlur={formik.handleBlur} placeholder="Password" required/>
       {formik.touched.password && formik.errors.password ?<div style={{color:"red"}}>{formik.errors.password}</div>:null}
-      <p style={{color:"red"}}>{msg}</p>
+
       <button type='submit'>Register</button>
       
     </form>

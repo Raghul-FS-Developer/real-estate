@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import register from '../../styles/register.css'
 import { useNavigate ,useParams} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 function ForgotConfirm() {
@@ -8,7 +10,7 @@ function ForgotConfirm() {
  const navigate=useNavigate()
  const params=useParams()
 
- const[msg,setMsg]=useState("")
+ 
  const[password,setPassword]=useState("")
  const[newpassword,setNewpassword]=useState("")
 
@@ -25,13 +27,13 @@ function ForgotConfirm() {
     if(res.data.statuscode==200){
       
      navigate("/sell")
-     alert("password changed successfully")
+     toast.success("password changed successfully")
     
     }else{
-        setMsg(res.data.message)
+        toast.error(res.data.message)
     }
 }else{
-     setMsg("Password Doesn't Match")
+     toast.error("Password Doesn't Match")
     }
 }catch(error){
   console.log(error)
@@ -43,11 +45,12 @@ function ForgotConfirm() {
 
 
     <div class="login-page">
+      <ToastContainer/>
   <div class="form">
       <form class="login-form" onSubmit={submit}>
       <input type="password" name='password' minlength="8" maxlength='14' onChange={(e)=>setPassword(e.target.value)} placeholder="password" required/>
       <input type="password" name='confirmpassword' minlength="8" maxlength='14' onChange={(e)=>setNewpassword(e.target.value)} placeholder="confirm Password" required/>
-      <p style={{color:"red"}}>{msg}</p>
+
       <button type='submit' >Reset</button>
       </form>
   </div>
