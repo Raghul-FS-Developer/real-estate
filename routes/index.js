@@ -46,7 +46,7 @@ router.post("/selling", upload.single("image"), async (req, res) => {
           result.save((err,data) => {
             if (err) {
               console.log(err);
-              res.json({ statuscode: 400, message: "something went wrong" });
+              res.json({ statuscode: 400, message: "Something went wrong" });
             } else {
               res.json({
                 statuscode: 200,
@@ -58,7 +58,7 @@ router.post("/selling", upload.single("image"), async (req, res) => {
         } else {
           res.json({
             statuscode: 400,
-            message: "wrong password",
+            message: "Wrong password",
           });
         }
       } else {
@@ -91,7 +91,7 @@ router.post("/selling", upload.single("image"), async (req, res) => {
           }else{
             res.json({
               statuscode: 400,
-              message: '"account is InActive , Check Your Mail For Activaton Link',
+              message: 'Account is InActive , Check Your Mail For Activaton Link',
             });
           }
         });
@@ -99,7 +99,7 @@ router.post("/selling", upload.single("image"), async (req, res) => {
     } else {
       res.json({
         statuscode: 400,
-        message: "user does not exist",
+        message: "User does not exist",
       });
     }
   } catch (error) {
@@ -115,13 +115,13 @@ router.delete('/delete/:id' ,async(req,res)=>{
     if(result){
    res.json({
      statuscode:200,
-     message:'deleted successfully'
+     message:'Deleted successfully'
       })
 
     }else{
       res.json({
         statuscode:400,
-        message:'deletion failed' 
+        message:'Deletion failed' 
       })
     }
   } catch (error) {
@@ -226,7 +226,7 @@ router.post("/register", async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    send.json({ message: "something went wrong" });
+    send.json({ message: "Something went wrong" });
   }
 });
 router.post("/register-confirm/:token", async (req, res) => {
@@ -307,11 +307,11 @@ router.post("/forgot-confirm/:token", async (req, res) => {
 
       res.json({
         statuscode: 200,
-        message: "password changed successfullly",
+        message: "Password changed successfullly",
       });
     } else {
       res.json({
-        message: "token expired",
+        message: "Token expired",
       });
     }
   } catch (error) {
