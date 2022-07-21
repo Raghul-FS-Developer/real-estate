@@ -78,7 +78,7 @@ function Sell() {
       if (res.data.statuscode == 200) {
         toast.update(id,{render:"posted successfully",type:"success",isLoading:false,autoClose:true,closeButton:true});
         setTimeout(()=> nav(`/${formik.values.categories}`),1000)
-        setTimeout(()=> window.location.reload(),1500)
+        setTimeout(()=> window.location.reload(),1000)
       } else {
         toast.update(id,{render:res.data.message,type:"error",isLoading:false,autoClose:true,closeButton:true});
       }
